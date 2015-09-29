@@ -9,7 +9,7 @@
       - name: create docker-compose file
         template:
           src: "templates/beachfront-compose.j2"
-          dest: "./beachfront-compose.yml"
+          dest: "./docker-compose.yml"
       - name: create nginx config files for each static site
         template:
           src: "templates/beachfront-nginx.j2"
