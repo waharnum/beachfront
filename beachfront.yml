@@ -6,16 +6,20 @@
     - { name: "ildh", image: "aharnum/ildh-docker", domain: "handbook.floeproject.local" }
     - { name: "fluidproject", image: "aharnum/fluidproject-docker" , domain: "fluidproject.local"}
   tasks:
+      - name: make sure /products directory exists
+        file:
+          dest: "./products"
+          state: directory
       - name: create docker-compose file
         template:
           src: "templates/beachfront-compose.j2"
-          dest: "./docker-compose.yml"
+          dest: "./products/docker-compose.yml"
       - name: create nginx config files for each static site
         template:
           src: "templates/beachfront-nginx.j2"
-          dest: "./{{ item.domain }}.conf"
+          dest: "./products/{{ item.domain }}.conf"
         with_items: static_containers
       - name: create Dockerfile
         template:
             src: "templates/beachfront-Dockerfile.j2"
-            dest: "./Dockerfile"
+            dest: "./products/Dockerfile"
