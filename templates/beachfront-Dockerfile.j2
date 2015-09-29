@@ -1,0 +1,4 @@
+FROM nginx
+{% for container in static_containers %}
+COPY {{ container.domain }}.conf /etc/nginx/conf.d/{{ container.domain }}.conf
+{% endfor %}

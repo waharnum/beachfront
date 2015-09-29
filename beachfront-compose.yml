@@ -1,0 +1,11 @@
+reverse-proxy:
+    build: .
+    ports:
+        - "80:80"
+    links:
+        - ildh
+        - fluidproject
+ildh:
+    image: aharnum/ildh-docker
+fluidproject:
+    image: aharnum/fluidproject-docker
