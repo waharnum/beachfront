@@ -3,8 +3,9 @@ reverse-proxy:
     ports:
         - "80:80"
     links:
-        - ildh
-        - fluidproject
+{% for container in static_containers %}
+        - {{ container.name }}
+{% endfor %}
 {% for container in static_containers %}
 {{ container.name }}:
     image: {{ container.image }}
