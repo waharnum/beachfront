@@ -8,7 +8,7 @@ A very basic proof-of-concept for managing multiple static sites as discrete Doc
 - `handbook.floeproject.local` and `fluidproject.local` are both defined in /etc/hosts to resolve to the Docker host, FE:
   - {docker-host-ip} handbook.floeproject.local  
   - {docker-host-ip} fluidproject.local
-- you have previously-built containers for static sites available via docker hub or other means, that serve on port 80
+- you have previously-built containers for static sites available via docker hub or other means, that serve on port 80 (as an example, I've created ones for the ILDH and the Fluid Project site, using the standard nginx image)
     - https://hub.docker.com/r/aharnum/ildh-docker/
     - https://hub.docker.com/r/aharnum/fluidproject-docker/
 
